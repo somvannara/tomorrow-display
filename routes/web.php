@@ -24,13 +24,13 @@ Route::get('/', function () {
       'accept' => 'application/json',
     ],
   ]);
-// $response = Http::get()
+  // $response = Http::get()
   $responseFuture = $client->request('GET', "https://api.tomorrow.io/v4/weather/forecast?location={$location}&timesteps=1d&units=metric&apikey={$apiKey}&timezone=Asia/Bangkok", [
     'headers' => [
       'accept' => 'application/json',
     ],
   ]);
- 
+
   $currentWeather = $response->getBody()->getContents(); //getBody returns stream object?? then getContents return string
   $current = json_decode($currentWeather, true);
   $forecastWeather = $responseFuture->getBody()->getContents();
@@ -42,7 +42,7 @@ Route::get('/', function () {
   // $descriptionFormatted = str_replace(' ', '_', strtolower($description['weatherCodeFullDay'][$currentWeather['data']['values']['weatherCode']])); //get the description as a slug
   // echo $descriptionFormatted;
   // var_dump($forecast);
-  return view('main',[
+  return view('main', [
     'currentWeather' => $current,
     'forecastWeather' => $forecast,
     'description' => $description,
