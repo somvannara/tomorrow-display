@@ -66,7 +66,7 @@ function initMap() {
   // }
 
   const div = document.createElement("div");
-  div.innerHTML = ' <img src="legend.png"> ';
+  div.innerHTML = ' <img src="legend.png" alt="legend"> ';
   legend.appendChild(div);
 
   // inject the tile layer

@@ -11,7 +11,7 @@
 <body class="bg-gradient-to-tr from-blue-200 to-blue-400 min-h-screen">
     <div class="mt-8">
         {{-- pass variables to blade component --}}
-        <x-weather-widget :currentWeather="$currentWeather" :description="$description" :forecastWeather="$forecastWeather" :location="$location" />
+        <x-data-widget :currentWeather="$currentWeather" :description="$description" :forecastWeather="$forecastWeather" :location="$location" />
     </div>
     <script>
         let autocomplete;
@@ -24,6 +24,7 @@
                     fields: ['place_id', 'geometry', 'name']
                 });
             autocomplete.addListener('place_changed', onPlaceChanged);
+            console.log(window.location.pathname);
         }
 
         const urlParams = new URLSearchParams(window.location.search)
@@ -31,7 +32,13 @@
 
         function onPlaceChanged() {
             var place = autocomplete.getPlace();
-            window.location.href = `/?location=${place.name}`
+            if ('URLSearchParams' in window) {
+                var searchParams = new URLSearchParams(window.location.search);
+                searchParams.set("location", place.name);
+                window.location.search = searchParams.toString();
+                } else {
+                    window.location.href = `extra/?location=${place.name}`;
+                }
             if(!place.geometry) {
                 //User did not select a prediction; reset the input field
                 document.getElementById('countrySearch').placeholder = 'Enter a valid place';

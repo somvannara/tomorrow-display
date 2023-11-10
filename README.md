@@ -7,6 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## About Tomorrow Display
+
+Tomorrow Display is a web application to test out Tomorrow.io API
+
+To run the project locally, type "php artisan serve" command in the terminal. Then, access http://localhost:8000 in your web browser. Enjoy :) 
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
