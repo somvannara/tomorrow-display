@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <title>How's the Weather</title>
 </head>
-
+{{-- Hello Kimhou --}}
 <body class="bg-gradient-to-tr from-blue-200 to-blue-400 min-h-screen">
     <div class="mt-8">
         {{-- pass variables to blade component --}}
